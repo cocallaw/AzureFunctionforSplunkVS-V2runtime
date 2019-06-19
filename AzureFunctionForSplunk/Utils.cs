@@ -230,6 +230,8 @@ namespace AzureFunctionForSplunk
                 req.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 req.Headers.Add("Authorization", "Splunk " + splunkToken);
                 req.Content = new StringContent(newClientContent.ToString(), Encoding.UTF8, "application/json");
+                log.LogInformation("Ready to Send");
+                log.LogWarning(req.Content.ToString());
                 HttpResponseMessage response = await SingleHttpClientInstance.SendToService(req);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
