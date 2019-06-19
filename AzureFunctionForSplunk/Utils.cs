@@ -233,8 +233,11 @@ namespace AzureFunctionForSplunk
                         Headers = {
                             { HttpRequestHeader.Authorization.ToString(), "Bearer " + splunkToken }
                         },
-                        Content = new StringContent(item, Encoding.UTF8, "application/json")
+                        Content = new StringContent(item, Encoding.UTF8, "application/json")      
                     };
+                    log.LogInformation("---Ready To Send---");
+                    log.LogInformation(item.ToString());
+                    log.LogInformation("---Ready To Send---");
 
                     HttpResponseMessage response = await SingleHttpClientInstance.SendToService(httpRequestMessage);
                     if (response.StatusCode != HttpStatusCode.OK)
