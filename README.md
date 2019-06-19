@@ -1,0 +1,1 @@
+# AzureFunctionforSplunkVS-V2runtime
